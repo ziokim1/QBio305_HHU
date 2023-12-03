@@ -60,6 +60,10 @@ qqPlot(resid.clean, envelope = F)
 # check for homoscedasticity and outliers 
 plot(model.clean, which = 1)
 
+# results - ANOVA table
+summary(model.raw)
+summary(model.clean)
+
 # results - histogram
 his <- plot_grid(h.raw, h.clean, labels = c('Raw Data', 'Cleaned Data'), label_size = 18, nrow = 2)
 title <- ggdraw() + draw_label("Histogram of ANOVA Residuals", fontface='bold')
