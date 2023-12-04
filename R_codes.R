@@ -123,13 +123,13 @@ dta.plot <- data.frame(CHR = as.numeric(gsub("H","",res.aov$chr)),
                        pval.group = res.aov$pval.group)
 
 # calculate the negative logarithm of the Bonferroni corrected significance threshold
-sig.threshold.BonfCorrected <- -log(0.05/nrow(dta.plot))
+sig.threshold.BonfCorrected <- -log10(0.05/nrow(dta.plot))
 
 # plot genome-wide p-values for markers
 manhattan(dta.plot, genomewideline = sig.threshold.BonfCorrected,
           suggestiveline = F, logp=T, p="pval.marker", type="l", 
           lwd=3, ylab="-log10(p-values)", main="Multiple marker QTL analysis")
-text(80,11,  "a_(Bonferroni)", cex=1, pos=3,col="red")
+text(80,7,  "a_(Bonferroni)", cex=1, pos=3,col="red")
 
 ### Linkage mapping (Seed Colour) ----
 
